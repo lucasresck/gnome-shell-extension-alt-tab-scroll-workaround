@@ -3,6 +3,6 @@
   "name": "Alt+Tab Scroll Workaround",
   "description": "Quick fix to the bug where scrolling in one application is repeated in another when switching between them using Alt+Tab (e.g., VS Code and Chrome).",
   "version": 6,
-  "shell-version": ["45"],
+  "shell-version": ["45", "46"],
   "url": "https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround"
 }
