@@ -1,4 +1,4 @@
-// Copyright (C) 2023  Lucas Emanuel Resck
+// Copyright (C) 2024  Lucas Emanuel Resck
 // Copyright (C) 2023  Lucas Tavares
 // Copyright (C) 2023  Lucas Delobelle
 // Copyright (C) 2022  vakokako
