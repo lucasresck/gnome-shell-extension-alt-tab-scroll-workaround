@@ -4,7 +4,7 @@
 
 As an example, after scrolling VS Code and switching to Chrome using `Alt+Tab`, `Super+Tab`, `Alt+Esc`, or overview (hot corner or `Super`) + mouse click, the VS Code scroll would be repeated in Chrome. Installing the extension should avoid this.
 
-**GNOME 45 supported!**
+**GNOME 45+ supported!**
 
 This bug is described in several open issues:
 - https://github.com/Microsoft/vscode/issues/28795 ([most commented VS Code bug!](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+sort%3Acomments-desc+label%3Abug))
