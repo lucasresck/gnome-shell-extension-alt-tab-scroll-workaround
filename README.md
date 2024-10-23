@@ -45,7 +45,7 @@ Restart the GNOME Shell:
 > make enable
 > ```
 > GNOME may also crashes if there are opened windows.
-> Make sure they are closed.
+> If not sure, close the open windows before restarting the GNOME Shell.
 
 ## License
 GPLv3
