@@ -24,18 +24,36 @@ The extension can be found at the GNOME Extensions website: [Alt+Tab Scroll Work
 
 If, instead, you prefer to install it from this repository, follow the next steps.
 
-Clone and enter the repository:
+#### Clone and enter the repository:
 ```
 git clone https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround.git
 cd gnome-shell-extension-alt-tab-scroll-workaround
 ```
 
-Install the extension:
+#### Check your Gnome version and choose extension version accordingly:
+
+Use ```gnome-shell --version``` to get your gnome version.
+
+|Gnome version  |Extension version|
+|-|-|
+|42|v4|
+|43|v4|
+|44|v4|
+|45|v8|
+|46|v8|
+|47|v8|
+
+So if you run an older version of Gnome do:
+```
+git checkout tags/v4
+```
+
+#### Install the extension:
 ```
 make install
 ```
 
-Restart the GNOME Shell:
+#### Restart the GNOME Shell:
 
 - Press `Alt+F2`;
 - Type `r` and press `Enter`.
