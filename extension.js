@@ -21,17 +21,20 @@ const altTab = imports.ui.altTab;
 
 let CurrentMonitorWindowSwitcherPopup;
 let CurrentMonitorAppSwitcherPopup;
+let CurrentWindowCyclerPopup;
 let extension = null;
 
 class Extension {
     constructor() {
         this.origMethods = {
-			"windowSwitcherPopup": altTab.WindowSwitcherPopup,
-            "appSwitcherPopup": altTab.AppSwitcherPopup
+            windowSwitcherPopup: altTab.WindowSwitcherPopup,
+            appSwitcherPopup: altTab.AppSwitcherPopup,
+            WindowCyclerPopup: altTab.WindowCyclerPopup,
         };
 
-		altTab.WindowSwitcherPopup = CurrentMonitorWindowSwitcherPopup;
+        altTab.WindowSwitcherPopup = CurrentMonitorWindowSwitcherPopup;
         altTab.AppSwitcherPopup = CurrentMonitorAppSwitcherPopup;
+        altTab.WindowCyclerPopup = CurrentWindowCyclerPopup;
 
         const seat = Clutter.get_default_backend().get_default_seat();
         this.vdevice = seat.create_virtual_device(
@@ -45,20 +48,22 @@ class Extension {
     }
 
     destroy() {
-		altTab.WindowSwitcherPopup = this.origMethods["windowSwitcherPopup"];
+        altTab.WindowSwitcherPopup = this.origMethods["windowSwitcherPopup"];
         altTab.AppSwitcherPopup = this.origMethods["appSwitcherPopup"];
     }
 }
 
 function init() {
-	CurrentMonitorWindowSwitcherPopup = GObject.registerClass(
-		class CurrentMonitorWindowSwitcherPopup extends altTab.WindowSwitcherPopup {
-			_finish() {
-				extension.movePointer();
-				super._finish();
-			}
-		}
-	);
+    // Fix for Alt+Tab (switch windows)
+    CurrentMonitorWindowSwitcherPopup = GObject.registerClass(
+        class CurrentMonitorWindowSwitcherPopup extends altTab.WindowSwitcherPopup {
+            _finish() {
+                extension.movePointer();
+                super._finish();
+            }
+        }
+    );
+    // Fix for Super+Tab (switch applications)
     CurrentMonitorAppSwitcherPopup = GObject.registerClass(
         class CurrentMonitorAppSwitcherPopup extends altTab.AppSwitcherPopup {
             _finish(timestamp) {
@@ -68,7 +73,16 @@ function init() {
                 super._finish(timestamp);
             }
         }
-	);
+    );
+    // Fix for Alt+Escape (switch windows directly)
+    CurrentWindowCyclerPopup = GObject.registerClass(
+        class CurrentWindowCyclerPopup extends altTab.WindowCyclerPopup {
+            _finish() {
+                extension.movePointer();
+                super._finish();
+            }
+        }
+    );
 }
 
 function enable() {
