@@ -35,7 +35,7 @@ Check your GNOME version:
 gnome-shell --version
 ```
 
-> If you run an older version of GNOME (< 45):
+> If you run an older version of GNOME (<45):
 > ```
 > git checkout v4
 > ```
