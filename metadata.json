@@ -2,7 +2,7 @@
   "uuid": "alt-tab-scroll-workaround@lucasresck.github.io",
   "name": "Alt+Tab Scroll Workaround",
   "description": "Quick fix to the bug where scrolling in one application is repeated in another when switching between them using Alt+Tab (e.g., VS Code and Chrome).",
-  "version": 8,
+  "version": 9,
   "shell-version": [
     "45",
     "46",
